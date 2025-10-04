@@ -1,0 +1,4 @@
+The following datasets have been used:
+
+1. Keplar Object of Interest
+(https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=cumulative)
