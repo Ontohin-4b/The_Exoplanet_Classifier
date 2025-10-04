@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# Data Loading and basic cleaning 
+# Loading and processing 1st Dataset (NASA Kepler Objects of Interest)
 df_raw = pd.read_csv("data/kepler_data.csv", comment="#")
 feature_list = ["koi_disposition","koi_period","koi_time0bk","koi_depth","koi_prad","koi_sma","koi_incl","koi_teq","koi_insol","koi_impact","koi_ror","koi_srho","koi_dor","koi_num_transits"]
 df_selected = df_raw[feature_list]
@@ -15,7 +15,7 @@ df_selected = df_raw[feature_list]
 df_1 = df_selected.copy()
 
 # Loading and processing 2nd dataset (NASA K2 Objects of Interest)
-df_2 = pd.read_csv("/Users/Sakib/The_Exoplanet_Classifier/data/k2_data.csv",comment="#")
+df_2 = pd.read_csv("data/k2_data.csv",comment="#")
 
 ## Feature Engineering missing column in K2 (koi_num_transits) 
 #### This part was generated with an AI tool (a LLM service named Grok, URL: https://grok.com)
