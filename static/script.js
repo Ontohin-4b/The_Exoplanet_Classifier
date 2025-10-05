@@ -5,11 +5,6 @@ function toPascalCase(str) {
     .join("");
 }
 
-document.querySelectorAll('input[type="number"]').forEach((input) => {
-  input.addEventListener("input", () => {
-    input.value = input.value.replace(",", ".");
-  });
-});
 
 document
   .getElementById("predictForm")
