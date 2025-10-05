@@ -117,8 +117,8 @@ print("\nClassification Report:")
 print(classification_report(y_test, y_pred, target_names=["FALSE POSITIVE","CANDIDATE","CONFIRMED"]))
 
 ## Saving the model for pipeline (NOTE: This code should be run only once)
-# joblib.dump(model, "model.pkl")
-# joblib.dump(scaler, "scaler.pkl")
+joblib.dump(model, "model.pkl")
+joblib.dump(scaler, "scaler.pkl")
 
 # Model Performence Evaluation Result 
 # Classification Report:
