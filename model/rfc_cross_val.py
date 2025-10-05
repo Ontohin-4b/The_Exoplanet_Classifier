@@ -1,11 +1,9 @@
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score, StratifiedKFold
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.impute import SimpleImputer
 import pandas as pd
 import numpy as np
-import joblib
 
 # Loading and processing 1st Dataset (NASA Kepler Objects of Interest)
 df_raw = pd.read_csv("data/kepler_data.csv", comment="#")
@@ -100,34 +98,17 @@ X = imputer.fit_transform(X)
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X_scaled, y, test_size=1/3, shuffle=True, random_state=91, stratify=y
-)
+# The Model
+model = RandomForestClassifier(n_estimators=500,max_depth=None,random_state=91,class_weight="balanced")
 
-# Model Development
-model = RandomForestClassifier(n_estimators=1000,max_depth=None,random_state=91,class_weight="balanced")
-model.fit(X_train, y_train)
+# Performing Cross Validation
+kfold = StratifiedKFold(n_splits=5,shuffle=True,random_state=89)
+score = cross_val_score(model,X_scaled,y,cv=kfold)
+print(f"Average = {score.mean()}")
+print(f"Full Matrix:\n {score}")
 
-# Model Performence Evaluation
-y_pred = model.predict(X_test)
-print("Confusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred, target_names=["FALSE POSITIVE","CANDIDATE","CONFIRMED"]))
+## Output
 
-## Saving the model for pipeline (NOTE: This code should be run only once)
-# joblib.dump(model, "model.pkl")
-# joblib.dump(scaler, "scaler.pkl")
-
-# Model Performence Evaluation Result 
-# Classification Report:
-#                 precision    recall  f1-score   support
-
-# FALSE POSITIVE       0.81      0.84      0.82      1718
-#      CANDIDATE       0.59      0.47      0.53      1118
-#      CONFIRMED       0.77      0.83      0.80      1687
-# 
-#       accuracy                           0.75      4523
-#      macro avg       0.72      0.72      0.72      4523
-#   weighted avg       0.74      0.75      0.74      4523
+## Average = 0.7502214425969995
+## Full Matrix:
+##  [0.74907885 0.74907885 0.74797347 0.75340951 0.75156653]
