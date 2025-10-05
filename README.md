@@ -12,26 +12,16 @@ A simple yet effective web-based Machine Learning tool that predicts whether a g
 ## Table of Contents
 
 - [The Exoplanet Classifier 🪐](#the-exoplanet-classifier-)
-
-- [Table of Contents](#table-of-contents)
-
-- [Project Overview](#project-overview)
-
-- [Tech Stack](#tech-stack)
-
-- [Getting Started](#getting-started)
-
-- [How to Use](#how-to-use)
-
-- [Model Details](#model-details)
-
-- [Results](#results)
-
-- [Screenshots](#screenshots)
-
-- [Acknowledgements](#acknowledgements)
-
-- [Appreciation](#appreciation) 
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Tech Stack](#tech-stack)
+  - [Getting Started](#getting-started)
+  - [How to Use](#how-to-use)
+  - [Model Details](#model-details)
+  - [Results](#results)
+  - [Screenshots](#screenshots)
+  - [Acknowledgements](#acknowledgements)
+  - [Appreciation](#appreciation)
 
 ---
 
@@ -263,14 +253,16 @@ Check [model/rfc_fit.py](https://github.com/Ontohin-4b/The_Exoplanet_Classifier/
   
 
 ## Screenshots
-
-  
-
-  
-
-*Example prediction on the KOI dataset. Yet to upload*
-
-  
+**Landing Page**
+![Landing Page](screenshots/landing.png)
+**Input Fields**
+![Input Fields](screenshots/input_1.png)
+**Input Fields when filled**
+![Input Fields when filled](screenshots/input_2.png)
+**Output**
+![Output](screenshots/output.png)
+**About Page**
+![About Page](screenshots/about.png)
 
   
 

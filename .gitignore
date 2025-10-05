@@ -19,6 +19,5 @@ model.pkl
 scaler.pkl
 instance/
 shit/
-Screenshots/
 *.db
 .vscode/
